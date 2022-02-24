@@ -79,7 +79,7 @@ body {
     color: black;
 }
 
-@media (max-width: 450px) {
+@media (min-width: 450px) {
     .campo input[type="email"],
 .campo input[type="text"],
 .campo input[type="password"] {
