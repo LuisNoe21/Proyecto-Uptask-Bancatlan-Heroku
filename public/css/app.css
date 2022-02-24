@@ -57,7 +57,7 @@ body {
 }
 
 
-@media (max-width: 450px) {
+@media (min-width: 450px) {
     campo label {
         flex: 0 0 100px;
         text-align: right;
