@@ -53,6 +53,7 @@ body {
     flex: 0 0 100px;
     text-align: right;
     padding-right: 1rem;
+    margin-left: -50px;
 }
 .campo input[type="email"],
 .campo input[type="text"],
@@ -60,7 +61,7 @@ body {
     height: 3rem;
     border: 0;
     flex: 1;
-    max-width: 70%;
+    max-width: 100%;
     border: 1px solid #455A64;
     border-radius: 5rem;
     padding-left: 2rem;
@@ -387,7 +388,7 @@ form input[type="submit"]{
     padding: 1.5rem;
     color: black;
     width: auto;
-    margin: 0;
+    /* margin: 0; */
 }
 
 .contenedor-acciones {
