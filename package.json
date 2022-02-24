@@ -8,6 +8,8 @@
     "dev": "nodemon ./index.js",
     "start": "node ./index.js",
     "watch": "webpack --w --mode development"
+
+    
   },
   "author": "Juan De la torre Valdez",
   "license": "ISC",
