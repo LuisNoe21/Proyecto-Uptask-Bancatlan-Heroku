@@ -3,12 +3,12 @@ require('dotenv').config({ path: 'variables.env'})
 
 const db = new Sequelize(
   process.env.BD_NOMBRE,
-  rocess.env.USER, 
-  rocess.env.PASS, 
+  process.env.USER, 
+  process.env.PASS, 
   {
-  host: rocess.env.BD_HOST,
+  host: process.env.BD_HOST,
   dialect: 'mysql',
-  port: rocess.env.BD_PORT,
+  port: process.env.BD_PORT,
   define: {
       timestamps: false
   },
