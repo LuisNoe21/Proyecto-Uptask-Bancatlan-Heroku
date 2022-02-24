@@ -1,0 +1,62 @@
+extends layout
+block contenido
+    .modal 
+        .modal-content 
+            form(action="#" autocomplete="off") 
+                div.grupo
+                    label(for="tarea") Tarea:
+                    input.nombre-tarea(type="text" name="tarea" placeholder="Nombre Tarea")
+                
+                button(type="submit").update Actualizar
+                button(type="button").close-modal Cancelar  
+    .contenido-principal
+        h1 #{nombrePagina} - #{proyecto.nombre}
+
+        if locals.mensajes
+                .alertas
+                    each categoria in Object.keys(locals.mensajes)
+                        each error in mensajes[categoria]
+                            .alerta(class=`${categoria}`)
+                                p= error
+
+        form.agregar-tarea(action=`/proyectos/${proyecto.url}` method="POST")
+            .campo
+               label(for="tarea") Tarea:
+               input.nombre-tarea(type="text" name="tarea" placeholder="Nombre Tarea")
+            .campo.enviar
+                input.boton.nueva-tarea(type="submit" value="Agregar") 
+
+        //- pre= vardump(tareas)
+
+        .listado-pendientes
+            ul
+              if tareas.length
+                each tarea in tareas
+                    li.tarea(data-tarea=tarea.id)
+                        p= tarea.tarea
+                        .acciones
+                            if tarea.estado
+                                i.far.fa-check-circle.completo
+                            else 
+                                i.far.fa-check-circle
+                            i.fas.fa-trash 
+                            i.fa.fa-pen
+              else 
+                p No hay tareas en este proyecto  
+
+
+
+        //- pre= vardump(tareas)
+
+        // Avance del Proyecto
+        .avance 
+            h2 Avance del Proyecto
+            #barra-avance.barra-avance
+                #porcentaje.porcentaje
+
+
+        // Acciones que se pueden realizar
+        .contenedor-acciones
+            a(href=`/proyecto/editar/${proyecto.id}` class="boton") Editar Proyecto
+            button#eliminar-proyecto(data-proyecto-url=proyecto.url type="button" class="boton eliminar") Eliminar Proyecto
+
